@@ -96,17 +96,17 @@ The four-stage architecture maps directly to the following regulatory instrument
 
 ## How to cite
 
-If you use or reference this prototype in academic work, please cite it as:
+If you use or reference this prototype in academic work, please cite it as (Please check the up to dated doi to cite):
 
-> PerviZxS (2026) “PerviZxS/APSRAIv1: APSRAI Prototype v1.0.0”. Zenodo. doi:10.5281/zenodo.20393065.
+> PerviZxS (2026) “PerviZxS/APSRAIv1: APSRAI Prototype v1.0.0”. Zenodo. doi:10.5281/zenodo.XXXXXXX.
 
 ---
 
 ## Author
 
 **Parviz Salmanov, MSc**
-Tallinn University of Technology (TalTech)
-Research Assistant
+Research Assistant @ Tallinn University of Technology (TalTech)
+
 ---
 
 ## License
