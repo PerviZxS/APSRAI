@@ -21,7 +21,7 @@ The script runs 15 synthetic infrastructure monitoring events through a four-sta
 2. **Alert generation**: The anomaly is packaged into a structured alert containing the anomaly type, confidence score, policy limit breached, and affected node.
 3. **Mandatory human decision**: The system halts. The operator must choose one of three authorized responses: threat confirmation, dismissal as false positive, or escalation. The pipeline cannot continue without this input.
 4. **Audit logging**: Regardless of the decision made, a complete and timestamped record is appended to an immutable log file.
-![APSRAI.drawio.svg](../vault/academia/Papers/Agentic%20AI%20for%20Public%20Sector%20Resilience/APSRAI.drawio.svg)
+![APSRAI.drawio.svg](APSRAI.drawio.svg)
 The output is a `.jsonl` audit log and a `.csv` summary file showing every anomaly detected and every decision made.
 
 ---
