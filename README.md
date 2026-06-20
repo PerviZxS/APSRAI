@@ -34,7 +34,7 @@ apsrai/
     decision.py       Stage 3, time-bound human decision (fail-closed)
     audit.py          Stage 4, hash-chained log, verification, tamper test
     orchestrator.py   wiring, boundary conditions, deterministic demo
-    __main__.py       CLI entry point
+    apsrai.py         CLI entry point
   tests/              behavioural tests, one per paper claim
   outputs/            generated audit log and summary CSV
   pyproject.toml
@@ -51,11 +51,11 @@ Python 3.9 or higher. No external runtime libraries are required; the code uses 
 ### Run modes
 
 ```bash
-python src/__main__.py --demo          # deterministic run, exercises all six behaviours
-python src/__main__.py --simulate      # unattended run, randomised operator decisions
-python src/__main__.py                 # interactive, you act as the operator
-python src/__main__.py --verify        # re-walk and verify the existing chain
-python src/__main__.py --tamper-test   # flip one entry, show the chain detects it
+python src/apsrai.py --demo          # deterministic run, exercises all six behaviours
+python src/apsrai.py --simulate      # unattended run, randomised operator decisions
+python src/apsrai.py                 # interactive, you act as the operator
+python src/apsrai.py --verify        # re-walk and verify the existing chain
+python src/apsrai.py --tamper-test   # flip one entry, show the chain detects it
 ```
 
 The `--demo` run is the one referenced in the paper. It deterministically produces one of each behaviour, so the committed audit log is complete evidence rather than seed-dependent. Two files are written to `outputs/`:

@@ -1,4 +1,4 @@
-"""CLI entry point: python src/__main__.py [--demo | --simulate | --verify | --tamper-test]"""
+"""CLI entry point: python src/apsrai.py [--demo | --simulate | --verify | --tamper-test]"""
 
 import argparse
 

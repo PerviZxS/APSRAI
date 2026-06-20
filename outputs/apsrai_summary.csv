@@ -1,8 +1,8 @@
 log_id,node,anomaly_type,confidence,severity,consequence_class,gate_decision,operator_decision,outcome_note,log_timestamp
-ac6b9433-af25-4eb6-9393-2b4ccbedf389,node-01,auth_failure,1.0,0.9,consequential,halt,threat_confirmed,,2026-06-20T17:57:27.475702+00:00
-b63d9dd2-d749-4af6-bb6d-3e96c731617b,node-14,cpu_spike,0.1,0.03,low_calibration,halt,false_positive,,2026-06-20T17:57:27.495370+00:00
-0f0f18a3-9ace-4f86-b26f-0a51e1dfef91,node-07,latency_breach,,,indeterminate,halt,false_positive,,2026-06-20T17:57:27.517479+00:00
-8bee884e-a1b0-4614-bc79-9244f6bdb007,node-11,network_flood,1.0,0.8,consequential,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-06-20T17:57:27.532088+00:00
-a6bb66ba-16e2-463e-b10a-341c740209be,node-11,network_flood,1.0,0.8,consequential,halt,late_escalated,timeout_final:8bee884e-a1b0-4614-bc79-9244f6bdb007;late_not_binding,2026-06-20T17:57:27.548392+00:00
-d2b72a6a-8ac4-46a3-a6e6-f1cddce7e1cd,node-03,disk_overflow,0.58,0.406,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-06-20T17:57:27.579334+00:00
-d6b1d653-6bda-4f39-aa5a-60cb2da1b037,node-07,cpu_spike,0.05,0.02,low_calibration,halt,escalated,,2026-06-20T17:57:27.595238+00:00
+ed11355f-17f8-4f63-a1e1-ab71584fa8dd,node-01,auth_failure,1.0,0.9,consequential,halt,threat_confirmed,,2026-06-20T18:01:00.451954+00:00
+32b7a12d-ae1e-4b69-bf43-6d17b2dffcc8,node-14,cpu_spike,0.1,0.03,low_calibration,halt,false_positive,,2026-06-20T18:01:00.468016+00:00
+2749673f-6488-400e-be6c-581025dee747,node-07,latency_breach,,,indeterminate,halt,false_positive,,2026-06-20T18:01:00.481744+00:00
+4c39ec9c-ab20-4e24-8619-5bdd5dfaad81,node-11,network_flood,1.0,0.8,consequential,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-06-20T18:01:00.496381+00:00
+52e5c111-f25a-4dd1-9170-6ac1843aea33,node-11,network_flood,1.0,0.8,consequential,halt,late_escalated,timeout_final:4c39ec9c-ab20-4e24-8619-5bdd5dfaad81;late_not_binding,2026-06-20T18:01:00.514244+00:00
+8f4d1f5a-8fbb-44c8-b08f-7d429ff72627,node-03,disk_overflow,0.58,0.406,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-06-20T18:01:00.554399+00:00
+edfb0ec6-65d8-4b52-9f34-00fdceefe6fd,node-07,cpu_spike,0.05,0.02,low_calibration,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-06-20T18:01:00.570465+00:00
