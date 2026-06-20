@@ -27,7 +27,7 @@ Three boundary conditions keep the gate's state space complete: duplicate classi
 
 ```
 apsrai/
-  src/apsrai/
+  src/
     config.py         parameters: nodes, criticality, thresholds
     detection.py      Stage 1, anomaly detection and synthetic data
     gate.py           Stage 2, alert and consequence x confidence gate
@@ -46,24 +46,16 @@ The module layout mirrors the framework's four stages, so each stage in the pape
 
 ## How to run it
 
-Python 3.9 or higher. No external runtime libraries are required; the code uses only the standard library.
-
-Set the source path once per shell (PowerShell shown; on Linux or macOS use `export PYTHONPATH=src`):
-
-```powershell
-$env:PYTHONPATH = "src"
-```
-
-In PyCharm you can instead right-click the `src` folder and choose Mark Directory as, Sources Root.
+Python 3.9 or higher. No external runtime libraries are required; the code uses only the standard library. Run from the repository root.
 
 ### Run modes
 
 ```bash
-python -m apsrai --demo          # deterministic run, exercises all six behaviours
-python -m apsrai --simulate      # unattended run, randomised operator decisions
-python -m apsrai                 # interactive, you act as the operator
-python -m apsrai --verify        # re-walk and verify the existing chain
-python -m apsrai --tamper-test   # flip one entry, show the chain detects it
+python src/__main__.py --demo          # deterministic run, exercises all six behaviours
+python src/__main__.py --simulate      # unattended run, randomised operator decisions
+python src/__main__.py                 # interactive, you act as the operator
+python src/__main__.py --verify        # re-walk and verify the existing chain
+python src/__main__.py --tamper-test   # flip one entry, show the chain detects it
 ```
 
 The `--demo` run is the one referenced in the paper. It deterministically produces one of each behaviour, so the committed audit log is complete evidence rather than seed-dependent. Two files are written to `outputs/`:
@@ -118,8 +110,10 @@ entry_hash = SHA-256( canonical_json(record_without_entry_hash) + prev_hash )
 
 ```bash
 pip install pytest
-python -m pytest tests -q
+pytest -q
 ```
+
+`pyproject.toml` puts `src` on the path for the test run, so no manual `PYTHONPATH` setup is needed.
 
 Each test asserts one claim from the paper's Artifact Description, so the suite doubles as a claim-to-code checklist.
 

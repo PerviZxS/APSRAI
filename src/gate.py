@@ -9,7 +9,7 @@ case (halt); low-calibration confidence routes to halt regardless of magnitude.
 from uuid import uuid4
 from datetime import datetime, timezone
 
-from .config import NODE_CRITICALITY, SEVERITY_THRESHOLD, LOW_CALIBRATION_FLOOR
+from config import NODE_CRITICALITY, SEVERITY_THRESHOLD, LOW_CALIBRATION_FLOOR
 
 
 def now_iso():

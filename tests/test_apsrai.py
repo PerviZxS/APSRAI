@@ -9,11 +9,11 @@ import os
 import json
 import tempfile
 
-from apsrai.gate import consequence_class, generate_alert
-from apsrai.detection import detect_anomaly
-from apsrai.audit import append_audit_entry, verify_chain, last_hash
-from apsrai.config import GENESIS_HASH
-from apsrai.orchestrator import run
+from gate import consequence_class, generate_alert
+from detection import detect_anomaly
+from audit import append_audit_entry, verify_chain, last_hash
+from config import GENESIS_HASH
+from orchestrator import run
 
 
 def test_missing_confidence_fails_safe_to_halt():

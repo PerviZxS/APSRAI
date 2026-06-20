@@ -7,7 +7,7 @@ pending action is blocked and the alert is auto-escalated to the next tier.
 
 import random
 
-from .config import DECISION_MAP
+from config import DECISION_MAP
 
 
 def human_decision(alert, simulate=False, timeout_rate=0.15, forced=None):

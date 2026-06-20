@@ -15,8 +15,9 @@ dependencies = []
 [project.optional-dependencies]
 test = ["pytest>=7"]
 
-[project.scripts]
-apsrai = "apsrai.__main__:main"
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["config", "detection", "gate", "decision", "audit", "orchestrator"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]

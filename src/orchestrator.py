@@ -7,11 +7,11 @@ Routing per anomaly:
 import csv
 from uuid import uuid4
 
-from .config import NODE_CRITICALITY, SUMMARY_CSV, AUDIT_LOG
-from .detection import generate_synthetic_log, detect_anomaly
-from .gate import generate_alert
-from .decision import human_decision
-from .audit import append_audit_entry, verify_chain
+from config import NODE_CRITICALITY, SUMMARY_CSV, AUDIT_LOG
+from detection import generate_synthetic_log, detect_anomaly
+from gate import generate_alert
+from decision import human_decision
+from audit import append_audit_entry, verify_chain
 
 
 def write_summary_csv(records, filepath=SUMMARY_CSV):

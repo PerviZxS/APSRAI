@@ -1,10 +1,10 @@
-"""CLI entry point: python -m apsrai [--demo | --simulate | --verify | --tamper-test]"""
+"""CLI entry point: python src/__main__.py [--demo | --simulate | --verify | --tamper-test]"""
 
 import argparse
 
-from .config import AUDIT_LOG
-from .orchestrator import run
-from .audit import verify_chain, tamper_test
+from config import AUDIT_LOG
+from orchestrator import run
+from audit import verify_chain, tamper_test
 
 
 def main():

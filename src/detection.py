@@ -8,7 +8,7 @@ fails to emit a usable score (a boundary condition handled downstream).
 import random
 from uuid import uuid4
 
-from .config import NODES, EVENT_TYPES
+from config import NODES, EVENT_TYPES
 
 
 def generate_synthetic_log(n=15, missing_conf_rate=0.12, dup_rate=0.12):

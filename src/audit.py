@@ -11,7 +11,7 @@ import hashlib
 from uuid import uuid4
 from datetime import datetime, timezone
 
-from .config import GENESIS_HASH, AUDIT_LOG
+from config import GENESIS_HASH, AUDIT_LOG
 
 
 def _now_iso():
