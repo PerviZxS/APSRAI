@@ -1,9 +1,29 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "APSRAI"
+type: software
+title: "APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection"
+abstract: >-
+  A Python proof-of-concept of the APSRAI framework (Agentic Public Sector
+  Resilience AI): a four-stage gated pipeline that makes a human operator
+  structurally mandatory before any consequential action in an AI-driven
+  threat-detection workflow, with a tamper-evident hash-chained audit log.
+  Developed as the demonstration and artifact components of a Design Science
+  Research study on operationalizing EU AI Act human-oversight requirements
+  for critical infrastructure.
 authors:
   - family-names: "Salmanov"
     given-names: "Parviz"
+    affiliation: "Tallinn University of Technology (TalTech)"
 version: 2.0.0
 date-released: 2026-06-20
 license: MIT
+repository-code: "https://github.com/PerviZxS/APSRAIv1"
+keywords:
+  - "agentic AI"
+  - "human-in-the-loop"
+  - "AI governance"
+  - "EU AI Act"
+  - "critical infrastructure"
+  - "audit log"
+# Add the Zenodo DOI here once minted, e.g.:
+# doi: "10.5281/zenodo.XXXXXXX"

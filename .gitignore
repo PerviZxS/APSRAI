@@ -1,8 +1,5 @@
+# Project-specific
 .idea/
-.venv/
-*.pyc
-*.egg-info/
-.pytest_cache/
 outputs/*_TAMPERED.jsonl
 
 # Byte-compiled / optimized / DLL files
