@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apsrai"
+version = "2.0.0"
+description = "APSRAI proof-of-concept: gated human-in-the-loop oversight for agentic AI in critical infrastructure"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Parviz Salmanov" }]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+apsrai = "apsrai.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
