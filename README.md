@@ -109,8 +109,8 @@ entry_hash = SHA-256( canonical_json(record_without_entry_hash) + prev_hash )
 ## Tests
 
 ```bash
-pip install pytest
-pytest -q
+python -m pip install pytest
+python -m pytest -q 
 ```
 
 `pyproject.toml` puts `src` on the path for the test run, so no manual `PYTHONPATH` setup is needed.
