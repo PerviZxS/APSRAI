@@ -153,8 +153,8 @@ BibTeX:
 
 ## Author
 
-**Parviz Salmanov, MSc**
-Research Assistant, Tallinn University of Technology (TalTech)
+**Parviz Salmanov**
+Early Stage Researcher, Tallinn University of Technology (TalTech)
 
 ## License
 
