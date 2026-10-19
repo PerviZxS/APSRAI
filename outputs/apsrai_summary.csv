@@ -1,8 +1,8 @@
 log_id,node,anomaly_type,confidence,severity,consequence_class,gate_decision,operator_decision,outcome_note,log_timestamp
-081a287e-5af0-45ec-82f4-aae0ab08879c,node-01,auth_failure,1.0,0.9,consequential,halt,threat_confirmed,,2026-06-24T20:15:50.815195+00:00
-a5d4c930-9bdd-4176-8eb4-c64806d375ea,node-14,cpu_spike,0.1,0.03,low_calibration,halt,false_positive,,2026-06-24T20:15:50.837948+00:00
-2a23ab6c-a532-4b59-a51a-8aab4a778dc4,node-07,latency_breach,,,indeterminate,halt,false_positive,,2026-06-24T20:15:50.857043+00:00
-2eceb775-c66d-4d72-a9d0-34e14ab5e3c7,node-11,network_flood,1.0,0.8,consequential,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-06-24T20:15:50.873382+00:00
-681bb5d9-1d22-43e7-b54e-ce23117764ba,node-11,network_flood,1.0,0.8,consequential,halt,late_escalated,timeout_final:2eceb775-c66d-4d72-a9d0-34e14ab5e3c7;late_not_binding,2026-06-24T20:15:50.888776+00:00
-ec3732a1-1cc8-404a-9e44-6f164a7a686b,node-03,disk_overflow,0.58,0.406,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-06-24T20:15:50.920707+00:00
-c47b9031-2abd-4fd5-afa9-61bf714e5fca,node-07,cpu_spike,0.05,0.02,low_calibration,halt,false_positive,,2026-06-24T20:15:50.935655+00:00
+6457d58d-9939-436e-93e8-6602fca6c74a,node-01,auth_failure,1.0,0.9,consequential,halt,threat_confirmed,,2026-10-19T08:38:34.748684+00:00
+04c33f51-fe3e-4d67-8249-48ef75c293ae,node-14,cpu_spike,0.1,0.03,low_calibration,halt,threat_confirmed,,2026-10-19T08:38:34.749138+00:00
+e9819640-bfd4-4343-9b54-5ea0a59f1147,node-07,latency_breach,,,indeterminate,halt,false_positive,,2026-10-19T08:38:34.749331+00:00
+8ffcae30-5c75-472c-b7e9-0d9f8cb19901,node-11,network_flood,1.0,0.8,consequential,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-10-19T08:38:34.749514+00:00
+43b13126-bda4-4d41-ada5-de3827868078,node-11,network_flood,1.0,0.8,consequential,halt,late_escalated,timeout_final:8ffcae30-5c75-472c-b7e9-0d9f8cb19901;late_not_binding,2026-10-19T08:38:34.749692+00:00
+5cf9ccc8-8061-4702-865a-df1bc933de4d,node-03,disk_overflow,0.58,0.406,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-10-19T08:38:34.750030+00:00
+cf3047c1-ea97-49a5-a64a-b8333822aa97,node-07,cpu_spike,0.05,0.02,low_calibration,halt,threat_confirmed,,2026-10-19T08:38:34.750231+00:00
