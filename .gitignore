@@ -6,10 +6,11 @@ __pycache__
 __pycache__/
 *.py[codz]
 *$py.class
-
+uv.lock
 # C extensions
 *.so
-
+.DS_Store
+src/apsrai.egg-info/
 # Distribution / packaging
 .Python
 build/
