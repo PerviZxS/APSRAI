@@ -42,7 +42,7 @@ def test_low_calibration_halts_regardless():
 
 
 def test_detection_skips_within_limit():
-    entry = {"entry_id": "x", "node": "node-01", "event_type": "cpu_spike",
+    entry = {"entry_id": "x", "node": "node-01", "event_type": "pump_load_spike",
              "observed_value": 0.4, "policy_limit": 0.6}
     assert detect_anomaly(entry) is None
 
@@ -51,7 +51,7 @@ def test_chain_is_append_only_and_verifies():
     with tempfile.TemporaryDirectory() as d:
         path = os.path.join(d, "log.jsonl")
         alert = generate_alert(detect_anomaly({
-            "entry_id": "a", "node": "node-01", "event_type": "auth_failure",
+            "entry_id": "a", "node": "node-01", "event_type": "pressure_deviation",
             "observed_value": 1.1, "policy_limit": 0.55}))
         r1 = append_audit_entry(alert, "threat_confirmed", filepath=path)
         r2 = append_audit_entry(alert, "escalated", filepath=path)
@@ -65,7 +65,7 @@ def test_tamper_is_detected():
     with tempfile.TemporaryDirectory() as d:
         path = os.path.join(d, "log.jsonl")
         alert = generate_alert(detect_anomaly({
-            "entry_id": "a", "node": "node-01", "event_type": "auth_failure",
+            "entry_id": "a", "node": "node-01", "event_type": "pressure_deviation",
             "observed_value": 1.1, "policy_limit": 0.55}))
         append_audit_entry(alert, "threat_confirmed", filepath=path)
         append_audit_entry(alert, "escalated", filepath=path)

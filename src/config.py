@@ -9,11 +9,11 @@ calibration is identified as future work in the paper.
 # Synthetic infrastructure nodes and event types
 NODES = ["node-01", "node-03", "node-07", "node-11", "node-14"]
 EVENT_TYPES = [
-    "cpu_spike",
-    "network_flood",
-    "auth_failure",
-    "latency_breach",
-    "disk_overflow",
+    "pump_load_spike",
+    "flow_anomaly",
+    "pressure_deviation",
+    "valve_state_mismatch",
+    "setpoint_change",
 ]
 
 # Node criticality in [0, 1]: how consequential an action on this node is.

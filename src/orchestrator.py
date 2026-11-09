@@ -41,14 +41,14 @@ def build_demo_entries():
         entries.append(e)
         return e["entry_id"]
 
-    add("node-01", "auth_failure", 1.10, 0.55); scripted[0] = "1"          # consequential halt
-    add("node-14", "cpu_spike", 0.66, 0.60)                                # sub-threshold
-    add("node-07", "latency_breach", 0.90, 0.50, missing=True); scripted[2] = "2"  # missing conf
-    tid = add("node-11", "network_flood", 1.15, 0.50); scripted[3] = "timeout"     # timeout
-    add("node-11", "network_flood", 1.15, 0.50, dup_id=tid); scripted[4] = "3"     # late
-    add("node-01", "auth_failure", 1.10, 0.55, dup_id=entries[0]["entry_id"])      # dedup
-    add("node-03", "disk_overflow", 0.95, 0.60); scripted[6] = "1"         # filler halt
-    add("node-07", "cpu_spike", 0.58, 0.55)                                # filler
+    add("node-01", "pressure_deviation", 1.10, 0.55); scripted[0] = "1"   # consequential halt
+    add("node-14", "pump_load_spike", 0.66, 0.60); scripted[1] = "2"   # low confidence
+    add("node-07", "valve_state_mismatch", 0.90, 0.50, missing=True); scripted[2] = "2"   # missing conf
+    tid = add("node-11", "flow_anomaly", 1.15, 0.50); scripted[3] = "timeout"   # timeout
+    add("node-11", "flow_anomaly", 1.15, 0.50, dup_id=tid); scripted[4] = "3"   # late
+    add("node-01", "pressure_deviation", 1.10, 0.55, dup_id=entries[0]["entry_id"])   # dedup
+    add("node-03", "setpoint_change", 0.95, 0.60); scripted[6] = "1"   # sub-threshold (logged, no halt)
+    add("node-07", "pump_load_spike", 0.58, 0.55); scripted[7] = "3"   # low confidence, escalated
     return entries, scripted
 
 

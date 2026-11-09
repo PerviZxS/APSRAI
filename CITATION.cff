@@ -6,10 +6,10 @@ authors:
   - family-names: "Salmanov"
     given-names: "Parviz"
     affiliation: "Tallinn University of Technology (TalTech)"
-version: 2.0.0
-date-released: 2026-06-20
+version: 2.0.1
+date-released: 2026-11-09
 license: MIT
-repository-code: "https://github.com/PerviZxS/APSRAIv1"
+repository-code: "https://github.com/PerviZxS/APSRAI"
 keywords:
   - "agentic AI"
   - "human-in-the-loop"

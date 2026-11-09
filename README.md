@@ -15,9 +15,9 @@ The accompanying paper proposes APSRAI as a governance framework. This prototype
 The simulation routes synthetic infrastructure events through a four-stage gated pipeline and produces an audit log whose integrity can be independently verified.
 
 1. **Detection.** Each event is checked against a policy limit. If the observed value exceeds the limit, an anomaly is raised and a confidence score is derived. Confidence may be absent when the upstream model fails to emit a usable score.
-2. **Alert generation and severity gate.** The anomaly is packaged into a structured alert (anomaly type, confidence, policy limit breached, affected node, consequence class). A severity gate then decides whether the classification triggers a mandatory halt or is logged for batch review. Severity is computed as confidence multiplied by node criticality. A missing or malformed confidence score is treated as worst case and routed to halt. A low-calibration score is routed to halt regardless of magnitude.
-3. **Time-bound human decision.** For gated classifications the system halts and the operator must select one of three authorized responses within a defined window: threat confirmation, dismissal as false positive, or escalation. If no response arrives in time, the system fails closed: the pending action is blocked and the alert is auto-escalated to the next oversight tier.
-4. **Append-only, hash-chained audit log.** Regardless of outcome, a timestamped record is appended to the log. Each record is chained to its predecessor by a cryptographic hash, so any later alteration, deletion, or reorder is detectable. This provides the tamper-evidence implied by Article 12 of the EU AI Act.
+2. **Alert generation and severity gate.** The anomaly is packaged into a structured alert (anomaly type, confidence, policy limit breached, affected node, consequence class). A severity gate then decides whether the classification triggers a mandatory halt or is logged for batch review. Severity is computed as confidence multiplied by node criticality. A missing or malformed confidence score is treated as worst case and routed to halt. A confidence below a set minimum (labelled `low_calibration` in the code, 'low confidence' in the paper) is routed to halt regardless of severity.
+3. **Time-bound human decision.** For gated classifications the system halts and the operator must select one of three authorized responses within a defined window: threat confirmation, dismissal as false positive, or escalation. If no response arrives in time, the system fails closed: the pending action is blocked and the alert is auto-escalated to the next oversight tier. In `--demo` and `--simulate` the operator responses and timeouts are simulated; the interactive mode has no clock and waits for input.
+4. **Append-only, hash-chained audit log.** Regardless of outcome, a timestamped record is appended to the log. Each record is chained to its predecessor by a SHA-256 hash, so editing, deleting or reordering an entry inside the log is detectable. Removing the newest entries, or rewriting the whole chain, is not detected; that would need signed entries and a copy of the latest hash stored elsewhere.
 
 Three boundary conditions keep the gate's state space complete: duplicate classifications carrying the same anomaly identifier within an open window are deduplicated rather than re-halted; a missing confidence score fails safe to halt; and an operator decision arriving after a recorded timeout is appended as a separate annotated entry that never overwrites the timeout outcome.
 
@@ -35,7 +35,7 @@ apsrai/
     audit.py          Stage 4, hash-chained log, verification, tamper test
     orchestrator.py   wiring, boundary conditions, deterministic demo
     apsrai.py         CLI entry point
-  tests/              behavioural tests, one per paper claim
+  tests/              behavioural tests
   outputs/            generated audit log and summary CSV
   pyproject.toml
   README.md
@@ -58,7 +58,7 @@ python src/apsrai.py --verify        # re-walk and verify the existing chain
 python src/apsrai.py --tamper-test   # flip one entry, show the chain detects it
 ```
 
-The `--demo` run is the one referenced in the paper. It deterministically produces one of each behaviour, so the committed audit log is complete evidence rather than seed-dependent. Two files are written to `outputs/`:
+The `--demo` run is scripted and produces every behaviour once, including confirmation, dismissal and escalation, so the committed audit log is the same on every run. The paper also describes the random `--simulate` mode (15 synthetic events per run). Two files are written to `outputs/`:
 
 - `apsrai_audit_log.jsonl`: append-only, hash-chained audit log, one JSON record per line
 - `apsrai_summary.csv`: flat summary table, one row per logged decision
@@ -104,7 +104,7 @@ Each audit log entry contains:
 entry_hash = SHA-256( canonical_json(record_without_entry_hash) + prev_hash )
 ```
 
-`verify_chain()` re-walks the log. A mismatched `entry_hash` reveals an altered record; a mismatched `prev_hash` reveals a deletion or reorder. The `--tamper-test` mode flips one field in a copy of the log and shows that verification flags it.
+`verify_chain()` re-walks the log. A mismatched `entry_hash` reveals an altered record; a mismatched `prev_hash` reveals a deletion or reorder inside the log, but not removal of the newest entries. The `--tamper-test` mode flips one field in a copy of the log and shows that verification flags it.
 
 ## Tests
 
@@ -115,7 +115,7 @@ python -m pytest -q
 
 `pyproject.toml` puts `src` on the path for the test run, so no manual `PYTHONPATH` setup is needed.
 
-Each test asserts one claim from the paper's Artifact Description, so the suite doubles as a claim-to-code checklist.
+The tests check the gate's routing, the boundary conditions and the hash chain.
 
 ## Limitations
 
@@ -126,7 +126,7 @@ This prototype demonstrates workflow logic and regulatory alignment. It does not
 The four-stage architecture maps to the regulatory instruments evaluated in the accompanying paper:
 
 - **EU AI Act, Article 14.** The mandatory halt in Stage 3 implements the human oversight requirement as an operational stop-gate, including the fail-closed default on operator non-response.
-- **EU AI Act, Article 12.** The hash-chained audit log in Stage 4 provides the tamper-evident record-keeping the article implies.
+- **EU AI Act, Article 12.** The hash-chained audit log in Stage 4 supports the record-keeping required by the article.
 - **ALTAI, transparency criterion.** The alert package in Stage 2 gives the operator full decision context before any action is taken.
 - **ALTAI, accountability criterion.** The audit log creates a complete and reviewable record of every AI-influenced classification.
 - **CER Directive, oversight capacity.** The decision structure ensures consequential classifications are reviewed by an authorized human operator before any action proceeds.
@@ -145,7 +145,7 @@ BibTeX:
   title     = {{APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection}},
   year      = {2026},
   publisher = {Zenodo},
-  version   = {2.0.0},
+  version   = {2.0.1},
   doi       = {10.5281/zenodo.20777216},
   url       = {https://doi.org/10.5281/zenodo.20777216}
 }
@@ -158,4 +158,4 @@ Early Stage Researcher, Tallinn University of Technology (TalTech)
 
 ## License
 
-MIT License. You are free to use, modify, and distribute this code for academic and non-commercial purposes with attribution.
+MIT License. You may use, modify and distribute this code, including commercially, as long as the copyright and license notice are kept.
