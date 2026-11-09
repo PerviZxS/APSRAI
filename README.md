@@ -135,7 +135,7 @@ The four-stage architecture maps to the regulatory instruments evaluated in the 
 
 Please check Zenodo for the current version DOI before citing.
 
-> Salmanov, P. (2026) “APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection”. Zenodo. doi:10.5281/zenodo.20777216.
+> Salmanov, P. (2026) “APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection”. Zenodo. doi:10.5281/zenodo.24077868.
 
 BibTeX:
 
@@ -147,7 +147,7 @@ BibTeX:
   publisher = {Zenodo},
   version   = {2.0.1},
   doi       = {10.5281/zenodo.20777216},
-  url       = {https://doi.org/10.5281/zenodo.20777216}
+  url       = {https://doi.org/10.5281/zenodo.24077868}
 }
 ```
 
