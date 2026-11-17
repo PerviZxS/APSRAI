@@ -1,8 +1,8 @@
 log_id,node,anomaly_type,confidence,severity,consequence_class,gate_decision,operator_decision,outcome_note,log_timestamp
-6f791ba8-95f9-472b-b5e5-267b009110b0,node-01,pressure_deviation,1.0,0.9,consequential,halt,threat_confirmed,,2026-11-09T08:47:54.252000+00:00
-da2b4924-5c60-4134-b28e-1b191efe142c,node-14,pump_load_spike,0.1,0.03,low_calibration,halt,false_positive,,2026-11-09T08:47:54.252216+00:00
-17c149a9-e6f8-4961-80d8-3d3735bf8e7a,node-07,valve_state_mismatch,,,indeterminate,halt,false_positive,,2026-11-09T08:47:54.252326+00:00
-44b05c07-1efd-4e83-8c0d-0c628aa2b955,node-11,flow_anomaly,1.0,0.8,consequential,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-11-09T08:47:54.252423+00:00
-0732e82b-15ec-4e7c-ac76-b091cc92e6ba,node-11,flow_anomaly,1.0,0.8,consequential,halt,late_escalated,timeout_final:44b05c07-1efd-4e83-8c0d-0c628aa2b955;late_not_binding,2026-11-09T08:47:54.252522+00:00
-74d3abb3-8ff9-492d-9a59-20c6f94ec264,node-03,setpoint_change,0.58,0.406,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-11-09T08:47:54.252677+00:00
-214dcf04-cd87-47f6-a852-d744acd0472e,node-07,pump_load_spike,0.05,0.02,low_calibration,halt,escalated,,2026-11-09T08:47:54.252769+00:00
+bafdfa4e-f794-466c-a9bd-0167da87e45c,node-01,flow_anomaly,0.18,0.162,low_calibration,halt,false_positive,,2026-11-17T05:44:27.435201+00:00
+dbbb7f6b-5393-4aec-886d-87e8dcb51c64,node-01,flow_anomaly,,,indeterminate,halt,false_positive,,2026-11-17T05:44:27.435592+00:00
+d1d749d5-6ecf-4ecf-a718-327e7ed169dc,node-07,pump_load_spike,,,indeterminate,halt,escalated,,2026-11-17T05:44:27.435802+00:00
+d521d2c3-1921-45a3-8a21-fa13851b4a86,node-14,pump_load_spike,0.65,0.195,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-11-17T05:44:27.435943+00:00
+f4e694aa-0b58-4276-933e-0c723307c1c7,node-11,pump_load_spike,0.22,0.176,sub_threshold,log_only,none_sub_threshold,logged_no_halt,2026-11-17T05:44:27.436076+00:00
+5042f3a5-1fc8-417d-a4e6-70208a56eabd,node-03,pump_load_spike,,,indeterminate,halt,timeout,fail_closed:action_blocked;auto_escalated,2026-11-17T05:44:27.436221+00:00
+90def590-73be-48b8-b055-c5958fa73c92,node-07,flow_anomaly,,,indeterminate,halt,false_positive,,2026-11-17T05:44:27.436369+00:00
