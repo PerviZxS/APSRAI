@@ -21,7 +21,7 @@ The simulation routes synthetic infrastructure events through a four-stage gated
 
 Three boundary conditions keep the gate's state space complete: duplicate classifications carrying the same anomaly identifier within an open window are deduplicated rather than re-halted; a missing confidence score fails safe to halt; and an operator decision arriving after a recorded timeout is appended as a separate annotated entry that never overwrites the timeout outcome.
 
-![APSRAI architecture](APSRAI.drawio.svg)
+![APSRAI architecture](APSRAI.drawio.png)
 
 ## Structure
 
@@ -135,7 +135,7 @@ The four-stage architecture maps to the regulatory instruments evaluated in the 
 
 Please check Zenodo for the current version DOI before citing.
 
-> Salmanov, P. (2026) “APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection”. Zenodo. doi:10.5281/zenodo.24077868.
+> Salmanov, P. (2026) “APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection”. Zenodo. doi:10.5281/zenodo.20777216.
 
 BibTeX:
 
@@ -146,8 +146,8 @@ BibTeX:
   year      = {2026},
   publisher = {Zenodo},
   version   = {2.0.1},
-  doi       = {10.5281/zenodo.24077868},
-  url       = {https://doi.org/10.5281/zenodo.24077868}
+  doi       = {10.5281/zenodo.20777216},
+  url       = {https://doi.org/10.5281/zenodo.20777216}
 }
 ```
 
