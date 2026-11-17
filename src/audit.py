@@ -1,9 +1,9 @@
 """Stage 4 - Append-only, hash-chained audit log (EU AI Act Art. 12).
 
 Each entry binds to its predecessor via entry_hash = SHA-256(canonical(payload)
-+ prev_hash). Any retroactive edit, deletion, or reorder breaks the chain and is
-detected by verify_chain(). This provides the tamper-evidence the Article 12
-record-keeping obligation implies.
++ prev_hash). An edit, deletion or reorder inside the log breaks the chain and is
+detected by verify_chain(). Removing the newest entries, or rewriting the whole
+chain, is not detected. The log supports Article 12 record-keeping.
 """
 
 import json

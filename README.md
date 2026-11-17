@@ -58,10 +58,10 @@ python src/apsrai.py --verify        # re-walk and verify the existing chain
 python src/apsrai.py --tamper-test   # flip one entry, show the chain detects it
 ```
 
-The `--demo` run is scripted and produces every behaviour once, including confirmation, dismissal and escalation, so the committed audit log is the same on every run. The paper also describes the random `--simulate` mode (15 synthetic events per run). Two files are written to `outputs/`:
+The `--demo` run is scripted and produces every behaviour at least once, including confirmation, dismissal and escalation, so every run gives the same sequence of outcomes (IDs, timestamps and hashes differ). Each run appends to the existing log; delete `outputs/apsrai_audit_log.jsonl` first to reproduce the committed eight-entry log. The paper also describes the random `--simulate` mode (15 synthetic events per run). Two files are written to `outputs/`:
 
 - `apsrai_audit_log.jsonl`: append-only, hash-chained audit log, one JSON record per line
-- `apsrai_summary.csv`: flat summary table, one row per logged decision
+- `apsrai_summary.csv`: summary table for the latest run, one row per decision; suppressed duplicates appear only in the audit log
 
 ## What the demo run demonstrates
 
@@ -123,19 +123,19 @@ This prototype demonstrates workflow logic and regulatory alignment. It does not
 
 ## Regulatory alignment
 
-The four-stage architecture maps to the regulatory instruments evaluated in the accompanying paper:
+The accompanying paper evaluates the framework against transparency, accountability and oversight capacity criteria taken from the EU AI Act, ALTAI and the CER Directive:
 
-- **EU AI Act, Article 14.** The mandatory halt in Stage 3 implements the human oversight requirement as an operational stop-gate, including the fail-closed default on operator non-response.
-- **EU AI Act, Article 12.** The hash-chained audit log in Stage 4 supports the record-keeping required by the article.
-- **ALTAI, transparency criterion.** The alert package in Stage 2 gives the operator full decision context before any action is taken.
-- **ALTAI, accountability criterion.** The audit log creates a complete and reviewable record of every AI-influenced classification.
-- **CER Directive, oversight capacity.** The decision structure ensures consequential classifications are reviewed by an authorized human operator before any action proceeds.
+- **EU AI Act, Article 14.** The mandatory halt in Stage 3, with its fail-closed default on operator non-response, is the human oversight step.
+- **EU AI Act, Article 12.** The hash-chained audit log in Stage 4 supports the required record-keeping.
+- **Transparency.** The alert package in Stage 2 gives the operator the decision context before any action is taken.
+- **Accountability.** The audit log keeps a reviewable record of every AI-influenced classification.
+- **Oversight capacity.** Classifications that meet a halt condition are reviewed by an operator before any action proceeds. The CER Directive itself sets no requirement at this decision level; the paper discusses this gap.
 
 ## How to cite
 
 Please check Zenodo for the current version DOI before citing.
 
-> Salmanov, P. (2026) “APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection”. Zenodo. doi:10.5281/zenodo.20777216.
+> Salmanov, P. (2026) “APSRAI Prototype: Human-in-the-Loop Governance for Agentic AI Threat Detection”. Zenodo. doi:10.5281/zenodo.24077868.
 
 BibTeX:
 
@@ -146,8 +146,8 @@ BibTeX:
   year      = {2026},
   publisher = {Zenodo},
   version   = {2.0.1},
-  doi       = {10.5281/zenodo.20777216},
-  url       = {https://doi.org/10.5281/zenodo.20777216}
+  doi       = {10.5281/zenodo.24077868},
+  url       = {https://doi.org/10.5281/zenodo.24077868}
 }
 ```
 
