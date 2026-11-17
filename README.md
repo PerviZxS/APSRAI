@@ -146,7 +146,7 @@ BibTeX:
   year      = {2026},
   publisher = {Zenodo},
   version   = {2.0.1},
-  doi       = {10.5281/zenodo.20777216},
+  doi       = {10.5281/zenodo.24077868},
   url       = {https://doi.org/10.5281/zenodo.24077868}
 }
 ```
